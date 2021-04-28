@@ -1,0 +1,39 @@
+from django.db import models
+
+# Create your models here.
+
+choice=(
+    ("Yes","Yes"),
+    ("No","No")
+)
+
+class UserType(models.Model):
+    usertype_id=models.AutoField(auto_created=True,primary_key=True)
+    usertype_name=models.CharField(max_length=20)
+    usertype_status=models.CharField(max_length=10,choices=choice)
+    # def __str__(self):
+    #     return self.usertype_name
+
+class User(models.Model):
+    user_id=models.AutoField(auto_created = True,primary_key = True)
+    user_fname = models.CharField(max_length=30, null=False)
+    user_lname = models.CharField(max_length=30, null=False)
+    user_email=models.EmailField()
+    username=models.CharField(max_length=50, null=False)
+    user_phone=models.CharField(max_length=20, null=True)
+    user_password=models.CharField(max_length=50, null=False)
+    reset_password_times=models.CharField(max_length=30, null=True)
+    user_type=models.ForeignKey(UserType,on_delete=models.CASCADE)
+    user_token=models.CharField(max_length=255, null=True)
+    isSuper_admin=models.CharField(max_length=10, choices=choice)
+    isSub_admin=models.CharField(max_length=10, choices=choice)
+    user_status=models.CharField(max_length=10,choices=choice)
+
+
+class EducationalDetails(models.Model):
+    edu_id=models.AutoField(auto_created = True,primary_key = True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    school_name=models.CharField(max_length=255, null=True)
+    college_name=models.CharField(max_length=255, null=True)
+    edu_details_status=models.CharField(max_length=10,choices=choice)
+
