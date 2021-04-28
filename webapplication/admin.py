@@ -4,3 +4,4 @@ from .profiles.models import *
 
 admin.site.register(User)
 admin.site.register(UserType)
+admin.site.register(EducationalDetails)
