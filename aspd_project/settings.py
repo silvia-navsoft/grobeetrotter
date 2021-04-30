@@ -75,15 +75,26 @@ WSGI_APPLICATION = 'aspd_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#        'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'grobeetrotter',
+#        'USER': 'postgres',
+#        'PASSWORD': 'myPassword',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+# }
+
 DATABASES = {
-       'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'grobeetrotter',
-       'USER': 'postgres',
-       'PASSWORD': 'myPassword',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'grobeetrotter',
+        'USER': 'postgres',
+        'PASSWORD': 'gpnavsoft$%^GY2',
+        'HOST': '3.222.63.70',
+        'PORT': '5432',
+    }
 }
 
 
@@ -131,3 +142,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST= "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER='silvia.sanyal@navsoft.in'
+EMAIL_HOST_PASSWORD="welcomenavsoft"
+EMAIL_USE_TLS= True
+EMAIL_USE_SSL=False
+DEFAULT_FROM_EMAIL = 'silvia.sanyal@navsoft.in'
