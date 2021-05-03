@@ -72,7 +72,7 @@ class ReceiveForgotCode(APIView):
         except:
             return Response({"status": 401, "message": "The user not found"})
 
-class ChangePassForgotAdmin(APIView):
+class ChangePassForgot(APIView):
     def post(self,request):
         user_id = request.data.get("user_id")
         user_password=request.data.get("user_password")
